@@ -31,7 +31,8 @@
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+            "routesFile": "routes.txt"
           },
           "configurations": {
             "production": {

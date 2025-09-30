@@ -1,0 +1,8 @@
+/login
+/dashboard
+/lanzamientos
+/lanzamientos/nuevo
+/personas
+/personas/nuevo
+/categorias
+/categorias/nuevo
