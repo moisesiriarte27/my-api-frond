@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>Lanzamientos</h1>
+
+  <!-- El formulario de búsqueda no necesita cambios -->
+  <div class="form-group">
+    <label>Descripcion</label>
+    <input type="text" class="full-width-input" placeholder="Buscar por descripción">
+  </div>
+  <div class="form-group">
+    <label>Vencimento</label>
+    <div class="date-row">
+      <input type="date" class="date-input">
+      <span class="ate-label">hasta</span>
+      <input type="date" class="date-input">
+    </div>
+  </div>
+  <button type="submit" class="search-btn">Buscar</button>
+
+  <div class="table-container">
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>Persona</th>
+          <th>Descripción</th>
+          <th>Categoría</th> <!-- AÑADIDO: Columna que faltaba -->
+          <th>Vencimento</th>
+          <th>Fecha de Pago</th>
+          <th>Valor</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- CORREGIDO: Se ajustan los nombres de las propiedades para que coincidan con el JSON -->
+        <tr *ngFor="let lanzamiento of lanzamientos">
+          <td data-label="Persona">{{ lanzamiento.persona }}</td>
+          <td data-label="Descripción">{{ lanzamiento.descripcion }}</td>
+          <td data-label="Categoría">{{ lanzamiento.categoria }}</td> <!-- AÑADIDO: Muestra la categoría -->
+          <td data-label="Vencimento">{{ lanzamiento.fechavencimiento | date:'dd/MM/yyyy' }}</td>
+          <td data-label="Pagamento">{{ lanzamiento.fechapago | date:'dd/MM/yyyy' }}</td>
+          <td class="col-valor" data-label="Valor">{{ lanzamiento.valor | currency:'PYG':'₲':'1.0-0' }}</td>
+          <td class="col-acciones" data-label="Acciones">
+            <button class="edit-btn" title="Editar Lanzamiento" [routerLink]="['/lanzamientos', lanzamiento.codigo]">✏️</button>
+            <button class="delete-btn" title="Eliminar Lanzamiento" (click)="eliminar(lanzamiento.codigo)">🗑️</button>
+          </td>
+        </tr>
+        <tr *ngIf="!lanzamientos || lanzamientos.length === 0">
+            <td colspan="7" style="text-align: center; padding: 2rem;">No hay lanzamientos para mostrar.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-container">
+    <!-- La paginación puede quedar como está por ahora -->
+  </div>
+
+  <div class="action-buttons">
+     <button class="new-btn" routerLink="/lanzamientos/nuevo">
+       ➕ Nuevo Lanzamiento
+     </button>
+  </div>
+</div>

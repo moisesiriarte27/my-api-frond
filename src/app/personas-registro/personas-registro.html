@@ -1,0 +1,60 @@
+<div class="container">
+  <h1>{{ personaForm.get('codigo')?.value ? 'Editar Persona' : 'Nueva Persona' }}</h1>
+
+  <form [formGroup]="personaForm" (ngSubmit)="guardarPersona()">
+    <div class="form-grid">
+
+      <mat-form-field appearance="fill" class="form-group full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" placeholder="Ej: Juan Pérez">
+        <mat-error *ngIf="personaForm.get('nombre')?.hasError('required')">El nombre es obligatorio.</mat-error>
+        <mat-error *ngIf="personaForm.get('nombre')?.hasError('minlength')">Debe tener al menos 3 caracteres.</mat-error>
+      </mat-form-field>
+
+      <div class="sub-grid full-width" formGroupName="direccion">
+        <mat-form-field appearance="fill" class="form-group two-thirds-width">
+          <mat-label>Calle</mat-label>
+          <input matInput formControlName="calle" placeholder="Ej: Calle Falsa">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-group one-third-width">
+          <mat-label>Número</mat-label>
+          <input matInput formControlName="numero" placeholder="Ej: 123">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-group half-width">
+          <mat-label>Complemento</mat-label>
+          <input matInput formControlName="complemento" placeholder="Ej: Depto 5A">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-group half-width">
+          <mat-label>Barrio</mat-label>
+          <input matInput formControlName="barrio" placeholder="Ej: Centro">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-group half-width">
+          <mat-label>Código Postal</mat-label>
+          <input matInput formControlName="codigoPostal" placeholder="Ej: 12345">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-group half-width">
+          <mat-label>Ciudad</mat-label>
+          <input matInput formControlName="ciudad" placeholder="Ej: Asunción">
+          <mat-error *ngIf="personaForm.get('direccion.ciudad')?.hasError('required')">La ciudad es obligatoria.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-group half-width">
+          <mat-label>Estado</mat-label>
+          <input matInput formControlName="estado" placeholder="Ej: Distrito Capital">
+          <mat-error *ngIf="personaForm.get('direccion.estado')?.hasError('required')">El estado es obligatorio.</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="action-buttons-form">
+      <button type="button" class="new-btn" (click)="guardarPersona()">Guardar</button>
+      <button type="button" class="new-btn" (click)="nuevaPersona()">Nuevo</button>
+      <button type="button" class="text-btn" (click)="volverALaBusqueda()">Volver a la búsqueda</button>
+    </div>
+  </form>
+</div>

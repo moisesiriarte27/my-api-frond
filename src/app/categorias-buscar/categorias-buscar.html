@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Categorías</h1>
+
+  <div class="table-container">
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th style="width: 120px;">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categoria of categorias">
+          <td data-label="Nombre">{{ categoria.nome }}</td>
+          <td class="col-acciones" data-label="Acciones">
+            <button class="edit-btn" title="Editar" [routerLink]="['/categorias', categoria.codigo]">✏️</button>
+            <button class="delete-btn" title="Eliminar" (click)="eliminar(categoria.codigo)">🗑️</button>
+          </td>
+        </tr>
+        <tr *ngIf="categorias.length === 0">
+          <td colspan="2" style="text-align: center; padding: 2rem;">No hay categorías para mostrar.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="action-buttons">
+    <button class="new-btn" routerLink="/categorias/nuevo">
+      ➕ Nueva Categoría
+    </button>
+  </div>
+</div>

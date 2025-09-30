@@ -1,0 +1,215 @@
+<!--
+  Versión rediseñada del Dashboard con un estilo moderno "Glassmorphism".
+  Tanto el HTML como el CSS están en este archivo para facilitar su uso.
+-->
+
+<!-- ========================================================= -->
+<!-- CSS PARA EL NUEVO DASHBOARD MODERNO -->
+<!-- ========================================================= -->
+<style>
+  /* --- Fondo Dinámico y Contenedor Principal --- */
+  .dashboard-body {
+    /* Este contenedor envuelve todo para crear el fondo */
+    position: relative;
+    overflow: hidden; /* Evita que los gradientes se salgan */
+    background-color: #0c111d; /* Un azul muy oscuro de base */
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  /* Efecto "Aurora" para el fondo */
+  .dashboard-body::before,
+  .dashboard-body::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    filter: blur(100px); /* El desenfoque clave para el efecto */
+    opacity: 0.3;
+  }
+
+  .dashboard-body::before {
+    background: radial-gradient(circle, #3b82f6, transparent 60%);
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -100px;
+  }
+
+  .dashboard-body::after {
+    background: radial-gradient(circle, #8b5cf6, transparent 60%);
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    right: -150px;
+  }
+
+  /* Contenedor principal del contenido */
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* --- Encabezado --- */
+  .dashboard-header h1 {
+    color: #f1f5f9;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  }
+
+  .dashboard-header p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+  }
+
+  /* --- Grid de Tarjetas --- */
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* --- Tarjetas (Estilo Glassmorphism) --- */
+  .nav-card {
+    display: block;
+    text-decoration: none;
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+
+    /* El efecto "Cristal Esmerilado" */
+    background: rgba(30, 41, 59, 0.4); /* Fondo semi-transparente */
+    backdrop-filter: blur(12px); /* El desenfoque del fondo */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .nav-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .card-icon svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: #93c5fd; /* Un azul más brillante */
+    transition: color 0.3s ease;
+  }
+
+  .nav-card:hover .card-icon svg {
+    color: #fff;
+  }
+
+  .card-text h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .card-text p {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  /* --- Estilos Responsive --- */
+  @media (max-width: 1024px) {
+    .dashboard-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .dashboard-body {
+      padding: 1rem;
+      min-height: 100vh;
+    }
+    .dashboard-header h1 {
+      font-size: 2.25rem;
+    }
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+    .card-content {
+      gap: 1rem;
+    }
+    .card-text h2 {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+<!-- ========================================================= -->
+<!-- ESTRUCTURA HTML PARA EL DASHBOARD -->
+<!-- ========================================================= -->
+<div class="dashboard-body">
+  <div class="container">
+    <header class="dashboard-header">
+      <h1>Panel Principal</h1>
+      <p>Selecciona una sección para comenzar a administrar.</p>
+    </header>
+
+    <main class="dashboard-grid">
+
+      <!-- Card para Lanzamientos -->
+      <a [routerLink]="['/lanzamientos']" class="nav-card">
+        <div class="card-content">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <div class="card-text">
+            <h2>Lanzamientos</h2>
+            <p>Gestiona tus ingresos y gastos.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card para Personas -->
+      <a [routerLink]="['/personas']" class="nav-card">
+        <div class="card-content">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197m0 0A10.004 10.004 0 003 21m12 0v-1a6 6 0 00-9-5.197" />
+            </svg>
+          </div>
+          <div class="card-text">
+            <h2>Personas</h2>
+            <p>Administra clientes y proveedores.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card para Categorías -->
+      <a [routerLink]="['/categorias']" class="nav-card">
+        <div class="card-content">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z" />
+            </svg>
+          </div>
+          <div class="card-text">
+            <h2>Categorías</h2>
+            <p>Organiza tus lanzamientos.</p>
+          </div>
+        </div>
+      </a>
+
+    </main>
+  </div>
+</div>

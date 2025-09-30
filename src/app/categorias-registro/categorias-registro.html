@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Nueva Categoría</h1>
+
+  <form [formGroup]="categoriaForm" (ngSubmit)="guardar()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nome" placeholder="Ej: Supermercado">
+      <mat-error *ngIf="categoriaForm.get('nome')?.touched && categoriaForm.get('nome')?.hasError('required')">El nombre es obligatorio.</mat-error>
+      <mat-error *ngIf="categoriaForm.get('nome')?.touched && categoriaForm.get('nome')?.hasError('minlength')">Debe tener al menos 3 caracteres.</mat-error>
+    </mat-form-field>
+
+    <div class="action-buttons-form">
+      <!-- El botón ahora se deshabilita si el formulario es inválido O si se está guardando -->
+      <button type="submit" class="search-btn" [disabled]="categoriaForm.invalid || isSaving">
+        <!-- El texto del botón cambia dinámicamente -->
+        {{ isSaving ? 'Guardando...' : 'Guardar' }}
+      </button>
+      <button type="button" class="new-btn" (click)="volver()">Volver a la búsqueda</button>
+    </div>
+  </form>
+</div>

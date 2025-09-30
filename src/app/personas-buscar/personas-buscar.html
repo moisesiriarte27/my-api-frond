@@ -1,0 +1,74 @@
+<!-- Template personas-buscar.html con estilos CSS implementados -->
+<div class="container">
+  <h1>Lista de Personas</h1>
+
+  <!-- Botón Nueva Persona -->
+  <div class="action-buttons">
+    <button
+      class="new-btn"
+      [routerLink]="['/personas/registro']">
+      ✨ Nueva Persona
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Estado</th>
+          <th>Ciudad</th>
+          <th>Estado/Provincia</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let persona of personas">
+          <td data-label="Código">{{ persona.codigo }}</td>
+          <td data-label="Nome">{{ persona.nombre }}</td>
+          <td data-label="Estado">
+            <!-- Status badge con clases del CSS -->
+            <span
+              class="status-badge"
+              [ngClass]="persona.activo ? 'status-active' : 'status-inactive'">
+              {{ persona.activo ? 'Activo' : 'Inactivo' }}
+            </span>
+          </td>
+          <!-- CORRECCIÓN: Acceder a ciudad y estado a través de direccion -->
+          <td data-label="Ciudad">{{ persona.direccion.ciudad }}</td>
+          <td data-label="Estado/Provincia">{{ persona.direccion.estado }}</td>
+          <td data-label="Acciones" class="col-acciones">
+            <button
+              class="edit-btn"
+              [routerLink]="['/personas', persona.codigo]"
+              title="Editar">
+              ✏️
+            </button>
+            <button
+              class="delete-btn"
+              (click)="eliminar(persona.codigo)"
+              title="Eliminar">
+              🗑️
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Mensaje cuando no hay datos -->
+    <div *ngIf="personas.length === 0" class="no-data" style="text-align: center; padding: 2rem; color: #94a3b8;">
+      <p>No se encontraron personas registradas.</p>
+    </div>
+  </div>
+
+  <!-- Paginación (opcional) -->
+  <div class="pagination-container" *ngIf="personas.length > 0">
+    <div class="page-info">
+      Mostrando {{ personas.length }} persona(s)
+    </div>
+    <div class="pagination">
+      <button class="page-btn active">1</button>
+    </div>
+  </div>
+</div>

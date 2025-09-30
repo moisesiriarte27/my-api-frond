@@ -1,0 +1,418 @@
+/* Variables CSS para consistencia */
+::ng-deep :root {
+  --primary-color: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #a5b4fc;
+  --secondary-color: #f1f5f9;
+  --accent-color: #06b6d4;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --background-main: #f8fafc;
+  --background-card: #ffffff;
+  --border-color: #e2e8f0;
+  --border-light: #f1f5f9;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+/* Reset y configuración base */
+::ng-deep * {
+  box-sizing: border-box;
+}
+
+::ng-deep body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Container principal con glassmorphism */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+/* Título principal moderno */
+::ng-deep h1 {
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+::ng-deep h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
+}
+
+/* Grupos de formulario con animación */
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  transform: translateY(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group:hover {
+  transform: translateY(-2px);
+}
+
+/* Labels con mayor especificidad */
+::ng-deep .form-group label,
+::ng-deep label {
+  display: block !important;
+  font-weight: 600 !important;
+  color: #1e293b !important;
+  margin-bottom: 0.5rem !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  position: relative !important;
+}
+
+/* Input de descripción con underline animado */
+::ng-deep .full-width-input,
+::ng-deep input.full-width-input,
+::ng-deep .p-inputtext.full-width-input {
+  width: 100% !important;
+  padding: 1rem 0 !important;
+  border: none !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 1rem !important;
+  color: #1e293b !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+}
+
+::ng-deep .full-width-input:focus,
+::ng-deep input.full-width-input:focus,
+::ng-deep .p-inputtext.full-width-input:focus {
+  border-bottom: 2px solid #6366f1 !important;
+  outline: none !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.1) !important;
+}
+
+::ng-deep .full-width-input::placeholder,
+::ng-deep input.full-width-input::placeholder,
+::ng-deep .p-inputtext.full-width-input::placeholder {
+  color: #94a3b8 !important;
+  opacity: 0.7 !important;
+}
+
+/* Container de fechas con mejor layout */
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: var(--secondary-color);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.date-row:hover {
+  background: var(--background-card);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Inputs de fecha modernos con mayor especificidad */
+::ng-deep .date-input,
+::ng-deep input.date-input,
+::ng-deep .p-inputtext.date-input {
+  width: 140px !important;
+  padding: 0.75rem 1rem !important;
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 0.5rem !important;
+  background: #ffffff !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: #1e293b !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .date-input:focus,
+::ng-deep input.date-input:focus,
+::ng-deep .p-inputtext.date-input:focus {
+  border-color: #6366f1 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+::ng-deep .date-input:hover,
+::ng-deep input.date-input:hover,
+::ng-deep .p-inputtext.date-input:hover {
+  border-color: #a5b4fc !important;
+}
+
+/* Label "até" mejorado */
+.ate-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  background: var(--background-card);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+/* Botón principal con máxima especificidad */
+::ng-deep button.search-btn,
+::ng-deep .search-btn,
+::ng-deep button[type="submit"],
+::ng-deep .p-button.search-btn {
+  background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+  border: none !important;
+  color: white !important;
+  padding: 0.875rem 2rem !important;
+  border-radius: 0.75rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-top: 2rem !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 48px !important;
+}
+
+::ng-deep button.search-btn:hover,
+::ng-deep .search-btn:hover,
+::ng-deep button[type="submit"]:hover,
+::ng-deep .p-button.search-btn:hover {
+  background: linear-gradient(135deg, #4f46e5, #3730a3) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+}
+
+::ng-deep .search-btn .p-button-label,
+::ng-deep .search-btn span,
+::ng-deep button[type="submit"] span,
+::ng-deep .p-button.search-btn .p-button-label {
+  color: white !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.025em !important;
+}
+
+/* Tabla moderna con glassmorphism */
+::ng-deep .p-datatable,
+::ng-deep .p-datatable-wrapper,
+::ng-deep .ui-g-12 .p-datatable {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: var(--radius-xl) !important;
+  overflow: hidden !important;
+  box-shadow: var(--shadow-lg) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  margin-top: 2rem !important;
+}
+
+/* Grid container moderno */
+.ui-g {
+  margin-top: 2rem !important;
+  padding: 0 !important;
+}
+
+.ui-g-12 {
+  padding: 0 !important;
+}
+
+/* Headers de tabla modernos con PrimeNG */
+::ng-deep .p-datatable-thead > tr > th,
+::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  background: linear-gradient(135deg, var(--secondary-color), #e2e8f0) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  padding: 1rem 1.5rem !important;
+  border: none !important;
+  border-bottom: 2px solid var(--primary-color) !important;
+  text-align: left !important;
+  white-space: nowrap !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Celdas de tabla con hover suave */
+::ng-deep .p-datatable-tbody > tr > td,
+::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  background: rgba(255, 255, 255, 0.8) !important;
+  color: var(--text-primary) !important;
+  padding: 1rem 1.5rem !important;
+  border: 1px solid var(--border-light) !important;
+  border-left: none !important;
+  border-right: none !important;
+  transition: all 0.2s ease !important;
+}
+
+::ng-deep .p-datatable-tbody > tr,
+::ng-deep .p-datatable .p-datatable-tbody > tr {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: none !important;
+}
+
+::ng-deep .p-datatable-tbody > tr:hover,
+::ng-deep .p-datatable .p-datatable-tbody > tr:hover {
+  background: rgba(99, 102, 241, 0.05) !important;
+  transform: translateX(4px) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+::ng-deep .p-datatable-tbody > tr:hover > td,
+::ng-deep .p-datatable .p-datatable-tbody > tr:hover > td {
+  background: transparent !important;
+  border-color: var(--primary-light) !important;
+}
+
+/* Remover bordes de PrimeNG por defecto */
+::ng-deep .p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
+  border-width: 0 0 2px 0 !important;
+}
+
+::ng-deep .p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td {
+  border-width: 1px 0 !important;
+}
+
+/* Alineaciones específicas para tu tabla */
+::ng-deep .p-datatable-thead th:nth-child(3),
+::ng-deep .p-datatable-thead th:nth-child(4),
+::ng-deep .p-datatable .p-datatable-thead th:nth-child(3),
+::ng-deep .p-datatable .p-datatable-thead th:nth-child(4) {
+  text-align: center !important;
+}
+
+::ng-deep .p-datatable-thead th:nth-child(5),
+::ng-deep .p-datatable .p-datatable-thead th:nth-child(5) {
+  text-align: right !important;
+}
+
+.col-data {
+  text-align: center;
+  width: 140px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-feature-settings: 'tnum' 1;
+}
+
+.col-valor {
+  text-align: right;
+  font-weight: 700;
+  color: var(--primary-color);
+  width: 120px;
+  font-size: 1.1em;
+  font-feature-settings: 'tnum' 1;
+}
+
+.col-acciones {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100px;
+}
+
+/* Responsive design */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  ::ng-deep h1 {
+    font-size: 2rem;
+  }
+
+  .date-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  ::ng-deep .date-input {
+    width: 100% !important;
+  }
+}
+
+/* Animaciones y micro-interacciones */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-group {
+  animation: slideInUp 0.3s ease-out forwards;
+}
+
+.form-group:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.form-group:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+::ng-deep .search-btn {
+  animation: slideInUp 0.3s ease-out 0.3s backwards;
+}

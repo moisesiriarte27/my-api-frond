@@ -1,0 +1,423 @@
+/* ========================================================= */
+/* ESTILOS GENERALES Y DE ESCRITORIO */
+/* ========================================================= */
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  color: #f1f5f9;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.full-width-input {
+  width: 100%;
+  padding: 1rem 0;
+  border: none;
+  border-bottom: 2px solid #475569;
+  background: transparent;
+  font-size: 1rem;
+  color: #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.full-width-input:focus {
+  border-bottom-color: #3b82f6;
+  outline: none;
+}
+
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.date-input {
+  width: 140px;
+  padding: 0.75rem 1rem;
+  border: 2px solid #475569;
+  border-radius: 0.5rem;
+  background: rgba(15, 23, 42, 0.8);
+  font-size: 0.875rem;
+  color: #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.date-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+.ate-label {
+  color: #94a3b8;
+}
+
+.search-btn, .new-btn {
+  border: none;
+  color: white;
+  padding: 0.875rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-btn {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  margin-top: 1rem;
+}
+
+.new-btn {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.search-btn:hover, .new-btn:hover {
+  transform: translateY(-3px);
+}
+
+.table-container {
+  margin-top: 2rem;
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.modern-table thead th {
+  background: #1e293b;
+  color: #f1f5f9;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  text-transform: uppercase;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.modern-table tbody td {
+  color: #e2e8f0;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #334155;
+}
+
+.modern-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.col-data { text-align: center; }
+.col-valor { text-align: right; font-weight: 700; color: #60a5fa; }
+.col-acciones { display: flex; justify-content: center; gap: 0.5rem; }
+
+.edit-btn, .delete-btn {
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+.edit-btn { background: #059669; }
+.delete-btn { background: #dc2626; }
+.edit-btn:hover, .delete-btn:hover { transform: translateY(-2px); }
+
+.pagination-container {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pagination {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.page-btn {
+  background: #334155;
+  border: 1px solid #475569;
+  color: #e2e8f0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+.page-btn.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+.page-info {
+  font-size: 0.875rem;
+}
+
+.action-buttons {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* ========================================================= */
+/* ESTILOS RESPONSIVE PARA MÓVILES */
+/* ========================================================= */
+@media (max-width: 768px) {
+
+  /* 1. Ajustes generales del contenedor */
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  h1 { font-size: 2rem; }
+  
+  /* 2. Flexibilizamos el formulario */
+  .date-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .date-input { width: 100%; }
+  /* Ajustes específicos para los inputs de fecha en vista móvil */
+  .date-input { 
+    width: 100% !important;
+    border: 1px solid rgba(71, 85, 105, 0.5) !important; /* Borde más suave */
+    background: rgba(15, 23, 42, 0.8) !important; /* Fondo explícito */
+    box-shadow: none !important; /* Quitamos cualquier box-shadow por defecto */
+  }
+
+  .date-input:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important; /* Un box-shadow más sutil */
+    transform: none !important; /* Quitamos la animación de translateY en móvil si existía */
+  }
+
+  /* Ajustar el contenedor de fechas para móviles */
+  .date-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 1rem; /* Añadimos padding al date-row */
+    background: rgba(30, 41, 59, 0.8); /* Fondo para el contenedor de fechas */
+    border-radius: 0.75rem;
+    border: 1px solid rgba(71, 85, 105, 0.3); /* Borde para el contenedor */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para el contenedor */
+    transition: all 0.2s ease;
+  }
+  
+  .date-row:hover {
+      background: rgba(30, 41, 59, 0.95);
+      border-color: rgba(71, 85, 105, 0.4);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .ate-label {
+    padding: 0.5rem 0; /* Ajustar padding si es necesario */
+    background: transparent; /* Asegurar que no tenga fondo propio */
+    border: none; /* Asegurar que no tenga borde propio */
+    text-align: center; /* Centrar el texto "hasta" */
+  }
+  .search-btn, .new-btn { width: 100%; }
+
+  /* 3. Transformamos la tabla en tarjetas */
+  .modern-table thead { display: none; }
+
+  .modern-table, .modern-table tbody, .modern-table tr, .modern-table td {
+    display: block;
+    width: 100%;
+  }
+
+/* --- Ajustes para cada tarjeta (fila de la tabla) --- */
+  .modern-table tr {
+    margin-bottom: 1.5rem;
+    background: rgba(30, 41, 59, 0.8); /* Agregamos un fondo explícito */
+    border: 1px solid rgba(71, 85, 105, 0.3); /* Un borde más suave */
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Un box-shadow más sutil para la "tarjeta" */
+    overflow: hidden;
+    transition: all 0.2s ease; /* Transición para un posible hover en móvil */
+  }
+
+  /* Quitamos el box-shadow de hover de escritorio que generaba un efecto no deseado en móvil */
+  .modern-table tr:hover {
+      background: rgba(30, 41, 59, 0.95); /* Fondo más oscuro al pasar el ratón */
+      transform: none; /* Quitamos la traslación del hover en móvil */
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  /* --- Ajustes para cada celda dentro de la tarjeta --- */
+  .modern-table td {
+    padding-left: 50%;
+    position: relative;
+    text-align: right;
+    /* Ajustamos el borde de las celdas para que coincida con el tema oscuro */
+    border-bottom: 1px solid rgba(71, 85, 105, 0.2); 
+    background: transparent; /* Aseguramos que el fondo de la celda sea transparente */
+  }
+  
+  /* Aseguramos que el fondo de la celda al pasar el ratón también sea transparente */
+  .modern-table tr:hover td {
+      background: transparent;
+  }
+  
+  .modern-table tr:last-child { margin-bottom: 0; }
+  .modern-table td:last-child { border-bottom: none; }
+
+  .modern-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1.5rem;
+    width: 40%;
+    text-align: left;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+
+  .col-acciones {
+    justify-content: flex-end;
+  }
+
+  /* 4. Ajustamos la paginación */
+  .pagination-container {
+      justify-content: center;
+  }
+  .pagination {
+      justify-content: center;
+      width: 100%;
+  }
+}
+.form-group { margin-bottom: 1.5rem; }
+label { display: block; font-weight: 600; color: #94a3b8; margin-bottom: 0.5rem; font-size: 0.875rem; text-transform: uppercase; }
+.full-width-input { width: 100%; padding: 1rem 0; border: none; border-bottom: 2px solid #475569; background: transparent; font-size: 1rem; color: #e2e8f0; transition: all 0.3s ease; }
+.full-width-input:focus { border-bottom-color: #3b82f6; outline: none; }
+.date-row { display: flex; align-items: center; gap: 1rem; }
+.date-input { width: 140px; padding: 0.75rem 1rem; border: 2px solid #475569; border-radius: 0.5rem; background: rgba(15, 23, 42, 0.8); font-size: 0.875rem; color: #e2e8f0; transition: all 0.2s ease; }
+.date-input:focus { border-color: #3b82f6; outline: none; }
+.ate-label { color: #94a3b8; }
+.search-btn, .new-btn { border: none; color: white; padding: 0.875rem 2rem; border-radius: 0.75rem; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
+.search-btn { background: linear-gradient(135deg, #3b82f6, #1d4ed8); margin-top: 1rem; }
+.new-btn { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.search-btn:hover, .new-btn:hover { transform: translateY(-3px); }
+.table-container { margin-top: 2rem; }
+.modern-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.modern-table thead th { background: #1e293b; color: #f1f5f9; font-weight: 600; padding: 1rem 1.5rem; text-align: left; text-transform: uppercase; border-bottom: 2px solid #3b82f6; }
+.modern-table tbody td { color: #e2e8f0; padding: 1rem 1.5rem; border-bottom: 1px solid #334155; }
+.modern-table tbody tr:hover { background: rgba(59, 130, 246, 0.1); }
+.col-data { text-align: center; }
+.col-valor { text-align: right; font-weight: 700; color: #60a5fa; }
+.col-acciones { display: flex; justify-content: center; gap: 0.5rem; }
+.edit-btn, .delete-btn { border: none; color: white; border-radius: 0.5rem; cursor: pointer; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; transition: all 0.2s ease; }
+.edit-btn { background: #059669; }
+.delete-btn { background: #dc2626; }
+.edit-btn:hover, .delete-btn:hover { transform: translateY(-2px); }
+.pagination-container { margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.pagination { display: flex; gap: 0.5rem; }
+.page-btn { background: #334155; border: 1px solid #475569; color: #e2e8f0; padding: 0.5rem 1rem; border-radius: 0.375rem; cursor: pointer; }
+.page-btn.active { background: #3b82f6; border-color: #3b82f6; color: white; }
+.page-info { font-size: 0.875rem; }
+.action-buttons { margin-top: 2rem; text-align: center; }
+
+
+/* ========================================================= */
+/* VERSIÓN FINAL Y DEFINITIVA PARA MÓVILES */
+/* ========================================================= */
+@media (max-width: 768px) {
+
+  /* 1. Contenedor principal a PANTALLA COMPLETA */
+  .container {
+    margin: 0; /* <-- LA CLAVE: Eliminamos los márgenes laterales */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    border-radius: 0; /* Eliminamos bordes redondeados para un look de app nativa */
+    border-left: none; /* Quitamos bordes laterales */
+    border-right: none;
+    padding: 1.5rem 1rem; /* Ajustamos el padding interno para móvil */
+    min-height: calc(100vh - 60px); /* Opcional: para que ocupe toda la altura de la pantalla menos la navbar */
+  }
+
+  h1 { font-size: 2rem; }
+  
+  /* 2. Formulario adaptable */
+  .date-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(30, 41, 59, 0.8);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(71, 85, 105, 0.3);
+  }
+  .date-input { width: 100%; border-color: rgba(71, 85, 105, 0.5); }
+  .ate-label { text-align: center; padding: 0; background: transparent; border: none; }
+  .search-btn, .new-btn { width: 100%; }
+
+  /* 3. Tabla convertida en tarjetas (versión corregida) */
+  .modern-table thead { display: none; }
+  .modern-table, .modern-table tbody, .modern-table tr, .modern-table td { display: block; width: 100%; }
+
+  .modern-table tr {
+    margin-bottom: 1.5rem;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(71, 85, 105, 0.3);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+  
+  .modern-table td {
+    padding-left: 50%;
+    position: relative;
+    text-align: right;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.2);
+    background: transparent;
+  }
+  
+  .modern-table tr:last-child { margin-bottom: 0; }
+  .modern-table td:last-child { border-bottom: none; }
+
+  .modern-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem; /* Ajustado el padding */
+    width: 45%; /* Ajustado el ancho */
+    text-align: left;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+
+  .col-acciones { justify-content: flex-end; }
+  .modern-table tr:hover { transform: none; }
+
+  /* 4. Paginación centrada */
+  .pagination-container { justify-content: center; }
+  .pagination { justify-content: center; width: 100%; }
+}

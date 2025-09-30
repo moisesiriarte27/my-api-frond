@@ -1,0 +1,31 @@
+<nav class="app-navbar">
+
+  <div class="navbar-brand">
+    <i class="pi pi-briefcase" style="font-size: 1.5rem; margin-right: 10px;"></i>
+    <span>Gestión de Finanzas</span>
+  </div>
+
+  <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+
+  <label for="menu-toggle" class="menu-toggle-label">
+    <i class="pi pi-bars"></i>
+  </label>
+
+<div class="navbar-links">
+  <a routerLink="/lanzamientos" class="nav-link-item">
+    <i class="pi pi-chart-bar p-mr-1"></i> Lanzamientos
+  </a>
+
+  <a routerLink="/personas" class="nav-link-item">
+    <i class="pi pi-users"></i> Personas
+  </a>
+  <a routerLink="/categorias" class="nav-link-item">
+   <i class="pi pi-tags"></i> Categorías
+  </a>
+
+  <a href="#" (click)="logout()" class="nav-link-item" *ngIf="authService.isAuthenticated()">
+    <i class="pi pi-briefcase p-mr-1"></i> Logout
+  </a>
+</div>
+
+</nav>

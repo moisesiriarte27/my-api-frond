@@ -1,0 +1,117 @@
+/* IMPORTANTE: Este código asume que ya has importado PrimeIcons 
+  en tu archivo "angular.json" como se discutió anteriormente.
+*/
+
+/* ========================================================= */
+/* ESTILOS DE ESCRITORIO (DEFAULT) */
+/* ========================================================= */
+.app-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3f51b5;
+  color: white; /* El color se hereda a los elementos hijos, incluido el ícono */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-link-item {
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.nav-link-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ocultamos el checkbox y el botón hamburguesa en la vista de escritorio.
+  Usamos una técnica para ocultarlo visualmente pero mantenerlo accesible.
+*/
+.menu-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.menu-toggle-label {
+  display: none; /* En escritorio, el botón no se ve */
+}
+
+
+/* ========================================================= */
+/* ESTILOS MÓVILES (Menú Hamburguesa) */
+/* ========================================================= */
+@media (max-width: 768px) {
+  .app-navbar {
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si no caben */
+  }
+
+  /* Mostramos el label (el botón hamburguesa) en móviles */
+  .menu-toggle-label {
+    display: block;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  /* Le damos estilo al ícono de barras (pi-bars) */
+  .menu-toggle-label .pi-bars {
+    font-size: 1.75rem;
+    /* No es necesario "color: white !important;", lo hereda de .app-navbar */
+  }
+
+  /* Por defecto, los enlaces están ocultos en móvil */
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100%; /* Ocupa todo el ancho */
+    order: 3; /* Asegura que se coloque al final, debajo del brand y el botón */
+    margin-top: 1rem;
+  }
+
+  /* AQUÍ ESTÁ LA MAGIA:
+    Cuando el checkbox está marcado (:checked), seleccionamos 
+    el siguiente elemento hermano que sea .navbar-links (usando ~)
+    y lo hacemos visible.
+  */
+  .menu-checkbox:checked ~ .navbar-links {
+    display: flex;
+  }
+
+  /* Adaptamos los ítems del menú para que se vean bien en vertical */
+  .nav-link-item {
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-link-item:last-child {
+    border-bottom: none;
+  }
+}

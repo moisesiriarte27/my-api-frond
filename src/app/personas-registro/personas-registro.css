@@ -1,0 +1,81 @@
+/* Archivo: src/app/personas-registro/personas-registro.css */
+
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 1rem;
+}
+
+h1 {
+  color: #f1f5f9;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Creamos una grilla de 6 columnas */
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Clases para controlar el ancho de los campos en la grilla */
+.full-width { grid-column: 1 / -1; }
+.two-thirds-width { grid-column: span 4; }
+.one-third-width { grid-column: span 2; }
+.half-width { grid-column: span 3; }
+
+
+/* --- Estilos para Angular Material --- */
+:host {
+  --mat-form-field-container-text-color: #94a3b8;
+  --mat-form-field-focus-label-color: #3b82f6;
+  --mat-form-field-background-color: rgba(30, 41, 59, 0.8);
+  --mat-form-field-focus-outline-color: #3b82f6;
+  --mat-form-field-text-color: #e2e8f0;
+  --mdc-filled-text-field-container-shape: 4px 4px 0 0;
+  --mat-form-field-error-text-color: #f87171;
+}
+
+.action-buttons-form {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-btn, .new-btn, .text-btn {
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.875rem 2rem;
+  transition: all 0.3s ease;
+}
+.search-btn { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; }
+.new-btn { background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; }
+.text-btn { background: transparent; color: #3b82f6; }
+.text-btn:hover { background: rgba(59, 130, 246, 0.1); }
+
+/* --- Estilos Responsivos --- */
+@media (max-width: 768px) {
+  .container { margin: 0; width: 100%; border-radius: 0; padding: 1.5rem 1rem; }
+  h1 { font-size: 2rem; }
+
+  .form-grid {
+    display: flex; /* En móvil, cambiamos a flexbox para apilar */
+    flex-direction: column;
+    gap: 0; /* Quitamos el gap de la grilla */
+  }
+
+  .action-buttons-form { flex-direction: column; align-items: stretch; }
+  .action-buttons-form button { width: 100%; }
+}
